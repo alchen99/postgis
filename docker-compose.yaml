@@ -1,0 +1,18 @@
+services:
+  postgis:
+    image: alchen99/postgis:17-3.5
+    restart: always
+    environment:
+      # NOT RECOMMENDED for a production environment. Trusts all incomming connections.
+      POSTGRES_HOST_AUTH_METHOD: trust
+      PGDATA: /var/lib/postgresql/data/pgdata
+    #command: |
+    #  sleep infinity
+    # expose on localhost 5435
+    ports:
+      - "5435:5432"
+    volumes:
+      - ${PWD}/pg-init:/docker-entrypoint-initdb.d
+      - ${PWD}/pg-data:/var/lib/postgresql/data
+      - ${PWD}/pg-load:/mnt/pg-load
+
