@@ -1,0 +1,52 @@
+# macOS
+.DS_Store
+
+# Visual Studio Code
+.vscode/
+.vsls.json
+
+# Logs
+logs/
+*.log
+
+# Caches
+.cache/
+
+# credentials
+*.pem
+*-credentials.yaml
+*-credentials.json
+*firebase-config.json*
+*firebase-config*.json*
+gha-creds-*.json
+
+# misc
+*.local.yaml
+*.local.yml
+*.env.local
+.env.local
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.local.sh
+
+# Binary and temp files
+z-*
+z-*.*
+z.*
+*.tgz
+*.tar.gz
+*.zip
+*.tmp
+*.bak
+*.old
+*.new
+*.swp
+*.noindex
+tmp/
+
+# Docker PostgreSQL contents
+pg-data/
+pg-init/
+pg-load/
