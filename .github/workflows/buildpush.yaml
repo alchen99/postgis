@@ -1,4 +1,4 @@
-name: buildpush
+name: Build container and push to Dockerhub
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
           PG_VERSION=$(grep FROM Dockerfile | awk -F: '{print $2}')
           echo "Setting PG_VERSION to $PG_VERSION"
           echo "PG_VERSION=${PG_VERSION" >> $GITHUB_ENV
-          
+
           if [[ "${{ env.BRANCH_NAME }}" == "master" ]]; then
             echo "Setting tag name to latest"
             echo "TAG_NAME=latest" >> $GITHUB_ENV
@@ -44,7 +44,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: 
-            - alchen99/postgis:${{ env.TAG_NAME }}
-            - alchen99/postgis:${{ env.PG_VERSION }}
-
+          tags: alchen99/postgis:${{ env.TAG_NAME }},alcen99/postgis:${{ env.PG_VERSION }}
