@@ -45,4 +45,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: alchen99/postgis:${{ env.TAG_NAME }},alcen99/postgis:${{ env.PG_VERSION }}
+          tags: alchen99/postgis:${{ env.TAG_NAME }},alchen99/postgis:${{ env.PG_VERSION }}
