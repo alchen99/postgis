@@ -14,6 +14,7 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v5
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
@@ -27,9 +28,9 @@ jobs:
         run: |
           PG_VERSION=$(grep FROM Dockerfile | awk -F: '{print $2}')
           echo "Setting PG_VERSION to $PG_VERSION"
-          echo "PG_VERSION=${PG_VERSION" >> $GITHUB_ENV
+          echo "PG_VERSION=${PG_VERSION}" >> $GITHUB_ENV
 
-          if [[ "${{ env.BRANCH_NAME }}" == "master" ]]; then
+          if [[ "${{ env.BRANCH_NAME }}" == "main" ]]; then
             echo "Setting tag name to latest"
             echo "TAG_NAME=latest" >> $GITHUB_ENV
           elif [[ "${{ env.BRANCH_NAME }}" =~ ^refs/tags/.* ]]; then
