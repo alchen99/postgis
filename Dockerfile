@@ -16,6 +16,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,id=debconf,target=/var/cache/debconf,sharing=locked \
     apt-get update && apt-get upgrade -y && \
     DEBIAN_FRONTEND=noninteractive \
-    apt-get -y install -y -qq --no-install-recommends postgis && \
+    apt-get -y install -y -qq --no-install-recommends postgis tmux vim && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
